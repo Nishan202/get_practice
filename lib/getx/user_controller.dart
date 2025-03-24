@@ -45,7 +45,7 @@ class UserController extends GetxController {
 
       isLoading(true);
       isUserCreated(false);
-      final response = await apiHelper.postApi(url: Urls.REGISTER_USER_URL, bodyParams: {
+      final response = await apiHelper.postApi(url: Urls.userPostLinkUrl, bodyParams: {
         // "name" : name,
         // "mobile_number": phoneNo,
         // "email": email,

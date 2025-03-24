@@ -50,11 +50,6 @@ class _SignupScreenState extends State<SignupScreen> {
             if (_controller.errorMessage.isNotEmpty) {
               isLoading = true;
               return Center(child: Text(_controller.errorMessage.value));
-              // isLoading = false;
-              // setState(() {
-              //
-              // });
-              // ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(_controller.errorMessage.value)));
             }
             return CustomButton(loading: _controller.isLoading.value, title: 'SignUp', onClick: () async {
               // isLoading = false;
