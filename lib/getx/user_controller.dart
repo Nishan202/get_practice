@@ -36,9 +36,9 @@ class UserController extends GetxController {
     }
   }
 
-  Future<void> createUser({required String name, required int phoneNo, required String email, required String password}) async {
+  Future<void> createUser({required String name, required String job}) async {
     try {
-      if (name.isEmpty || email.isEmpty || password.isEmpty) {
+      if (name.isEmpty || job.isEmpty) {
         errorMessage('Please fill all fields');
         return;
       }
@@ -46,15 +46,17 @@ class UserController extends GetxController {
       isLoading(true);
       isUserCreated(false);
       final response = await apiHelper.postApi(url: Urls.REGISTER_USER_URL, bodyParams: {
+        // "name" : name,
+        // "mobile_number": phoneNo,
+        // "email": email,
+        // "password": password
         "name" : name,
-        "mobile_number": phoneNo,
-        "email": email,
-        "password": password
+        "job" : job
       });
-      if(response['status']){
+      if(response.statusCode == 201){
         isUserCreated(true);
       } else{
-        errorMessage('Failed to create user: ${response['message']}');
+        errorMessage('Failed to create user: ${response.statusCode}');
       }
     } catch (e){
       errorMessage('Error occurred: $e');

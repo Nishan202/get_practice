@@ -34,10 +34,10 @@ class _SignupScreenState extends State<SignupScreen> {
           CustomTextfield(controller: _nameController, labelText: 'Name', inputType: TextInputType.emailAddress,),
           const SizedBox(height: 10,),
           CustomTextfield(controller: _emailController, labelText: 'Email', placeholder: 'Enter Email',),
-          const SizedBox(height: 10,),
-          CustomTextfield(controller: _phoneNoController, labelText: 'Phone N0', placeholder: 'Enter Phone No',),
-          const SizedBox(height: 10,),
-          CustomTextfield(controller: _passwordController, labelText: 'Password', placeholder: 'Enter Password',),
+          // const SizedBox(height: 10,),
+          // CustomTextfield(controller: _phoneNoController, labelText: 'Phone N0', placeholder: 'Enter Phone No',),
+          // const SizedBox(height: 10,),
+          // CustomTextfield(controller: _passwordController, labelText: 'Password', placeholder: 'Enter Password',),
           // Align(
           //   alignment: Alignment.topRight,
           //   child: TextButton(onPressed: (){}, child: Text('Forgot password')),
@@ -58,7 +58,7 @@ class _SignupScreenState extends State<SignupScreen> {
             }
             return CustomButton(loading: _controller.isLoading.value, title: 'SignUp', onClick: () async {
               // isLoading = false;
-              await _controller.createUser(name: _nameController.text, email: _emailController.text, phoneNo: int.parse(_phoneNoController.text), password: _passwordController.text);
+              await _controller.createUser(name: _nameController.text, job: _emailController.text);
               ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('User Registered successfully')));
               // Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => HomeScreen()));
               if(_controller.isUserCreated.value){
